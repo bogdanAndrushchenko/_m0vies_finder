@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /.idea
+/notification_delete.txt
 
 # testing
 /coverage
