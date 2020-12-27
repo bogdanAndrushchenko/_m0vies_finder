@@ -52,4 +52,4 @@ const NavBarA = ({ onFormSubmit }) => {
   );
 };
 
-export default NavBarA;
+// export default NavBarA;
