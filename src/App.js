@@ -6,11 +6,9 @@ import Container from "./Component/Container";
 import AppNavBar from "./Component/AppNavBar";
 import HomePage from "./pages/HomePage";
 import MoviePage from "./pages/MoviesPage";
-// import NavBarA from "./Component/AppNavBar/NavBarA";
 
 import getResource from "./API_service/api_service";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -34,7 +32,7 @@ function App() {
         <Route path="/" exact>
           <HomePage movie_list={movieList} />
         </Route>
-        <Route path="/movie">
+        <Route path="/movies">
           <MoviePage />
         </Route>
       </Switch>
