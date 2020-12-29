@@ -30,7 +30,7 @@ function App() {
       {/*<NavBarA onFormSubmit={foo} />*/}
       <Switch>
         <Route path="/" exact>
-          <HomePage movie_list={movieList} />
+          <HomePage movie_list={movieList} titleHeader="Trending today" />
         </Route>
         <Route path="/movies">
           <MoviePage />
