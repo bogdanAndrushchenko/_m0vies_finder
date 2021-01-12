@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import MovieDetPagesLinks from "./MovieDetPageLinks";
 
-import defaultImage from "../images/defaultImg.jpg";
 import { getMovieDetails } from "../API_service/api_service";
 
+import defaultImage from "../images/defaultImg.jpg";
 import "./styles/MovieDetailsPage.scss";
 
 const MovieDetailsPage = () => {
@@ -44,20 +45,19 @@ const MovieDetailsPage = () => {
 
           <p className="genres">
             Production companies:
-            <ul>
+            <p>
               {movieDetails.production_companies.map(
                 ({ id, name, origin_country }) => (
-                  <li key={id} className="genres__item">
-                    <p>{`${name} ${
-                      origin_country && `(${origin_country})`
-                    }`}</p>
-                  </li>
+                  <span key={id} className="genres__item">
+                    {`${name} ${origin_country && `(${origin_country})`}, `}
+                  </span>
                 )
               )}
-            </ul>
+            </p>
           </p>
           <p className="genres">Overview:</p>
           <p className="overview">{movieDetails.overview}</p>
+          <MovieDetPagesLinks />
         </div>
       )}
     </>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { NavLink, useRouteMatch } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -6,8 +6,8 @@ import "./styles/HomePage.scss";
 import defaultImage from "../images/defaultImg.jpg";
 
 const HomePage = ({ movie_list, titleHeader }) => {
-  const { url } = useRouteMatch();
-  console.log(url);
+  const params = useRouteMatch();
+  console.log(params.path);
   return (
     <>
       {movie_list && (
@@ -17,7 +17,7 @@ const HomePage = ({ movie_list, titleHeader }) => {
             {movie_list &&
               movie_list.map(({ id, title, backdrop_path }) => (
                 <li className="MovieGalleryItem" key={id}>
-                  <NavLink to={`${url}/${id}`}>
+                  <NavLink to={`${params.path}/${id}`}>
                     <img
                       src={
                         backdrop_path
