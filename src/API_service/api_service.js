@@ -9,7 +9,7 @@ axios.defaults.params = {
   api_key: API_KEY,
 };
 
-const getResource = async (page = 1) => {
+export const getTrending = async (page = 1) => {
   try {
     // const {
     //   data: { total_pages, results },
@@ -17,6 +17,7 @@ const getResource = async (page = 1) => {
     // return [results, total_pages];
     const { data } = await axios.get(`/trending/movie/day?page=${page}`);
     return data;
+    // console.log(data .splice(0,17);)
   } catch (error) {
     throw toast.error(error, {
       autoClose: 2000,
@@ -24,7 +25,7 @@ const getResource = async (page = 1) => {
   }
 };
 
-const getSearchMovie = async (query, page = 1) => {
+export const getSearchMovie = async (query, page = 1) => {
   try {
     const { data } = await axios.get(
       `/search/movie?query=${query}&page=${page}`
@@ -35,6 +36,13 @@ const getSearchMovie = async (query, page = 1) => {
     return [];
   }
 };
-getResource();
-getSearchMovie("batman");
-export default getResource;
+
+export const getMovieDetails = async (movie_id) => {
+  try {
+    const { data } = await axios.get(`/movie/${movie_id}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};

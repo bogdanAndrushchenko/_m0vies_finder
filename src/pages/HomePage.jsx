@@ -1,9 +1,13 @@
+import { useState } from "react";
+import { NavLink, useRouteMatch } from "react-router-dom";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
 
 import "./styles/HomePage.scss";
+import defaultImage from "../images/defaultImg.jpg";
 
 const HomePage = ({ movie_list, titleHeader }) => {
+  const { url } = useRouteMatch();
+  console.log(url);
   return (
     <>
       {movie_list && (
@@ -11,11 +15,15 @@ const HomePage = ({ movie_list, titleHeader }) => {
           <h2 className="TitleHeader">{titleHeader}</h2>
           <ul className="MovieGallery">
             {movie_list &&
-              movie_list.map(({ id, poster_path, title, backdrop_path }) => (
+              movie_list.map(({ id, title, backdrop_path }) => (
                 <li className="MovieGalleryItem" key={id}>
-                  <NavLink to="/movies/movie">
+                  <NavLink to={`${url}/${id}`}>
                     <img
-                      src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
+                      src={
+                        backdrop_path
+                          ? `https://image.tmdb.org/t/p/w500/${backdrop_path}`
+                          : defaultImage
+                      }
                       alt={title}
                       className="MovieGalleryItem-image"
                     />

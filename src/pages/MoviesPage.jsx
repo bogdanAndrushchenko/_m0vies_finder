@@ -1,25 +1,44 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
-import "./styles/MoviePage.scss";
 import FormSearch from "../Component/FormSearch";
 import HomePage from "./HomePage";
 
-const MoviePage = ({ onFormSubmit }) => {
+import { getSearchMovie } from "../API_service/api_service";
+
+const MoviePage = () => {
   const [searchMovie, setSearchMovie] = useState("");
-  const [movie_list, setMovieList] = useState([]);
+  const [movieList, setMovieList] = useState([]);
+
+  useEffect(() => {
+    if (searchMovie !== "") {
+      getMovieList();
+    }
+  }, [searchMovie]);
+
+  const getMovieList = () => {
+    getSearchMovie(searchMovie)
+      .then(({ results }) => {
+        setMovieList(results);
+      })
+      .catch((e) => toast(e));
+  };
+
+  const onFormSubmit = (movie) => {
+    setSearchMovie(movie);
+  };
 
   return (
     <>
       <FormSearch onFormSubmit={onFormSubmit} />
-      <HomePage titleHeader={`Your result ${searchMovie}`} />
+      {searchMovie && (
+        <HomePage
+          movie_list={movieList}
+          titleHeader={`Your result ${searchMovie}`}
+        />
+      )}
     </>
   );
-};
-
-MoviePage.propTypes = {
-  onFormSubmit: PropTypes.func.isRequired,
 };
 
 export default MoviePage;

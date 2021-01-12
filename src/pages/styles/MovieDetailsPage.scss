@@ -1,0 +1,39 @@
+.details {
+  padding: 10px 20px 10px;
+
+  .title {
+    color: #b3eafd;
+  }
+
+  .release {
+    color: #527480;
+    font-size: 20px;
+  }
+
+  .genres {
+    color: #72b8d0;
+    font-size: 18px;
+    font-weight: bold;
+
+    .genres__item {
+      color: #8db8c6;
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
+
+  .overview {
+    color: #b9d5de;
+    font-size: 17px;
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  .details__img {
+    border-radius: 5px;
+  }
+}
+
+li {
+  list-style-type: none;
+}
