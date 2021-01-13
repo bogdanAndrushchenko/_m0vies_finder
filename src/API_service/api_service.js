@@ -48,9 +48,9 @@ export const getMovieDetails = async (movie_id) => {
   }
 };
 
-export const getMovieDetailsCast = async (movie_id) => {
+export const getMovieDetailsCast = async (movie_id, links) => {
   try {
-    const { data } = await axios.get(`/movie/${movie_id}/credits`);
+    const { data } = await axios.get(`/movie/${movie_id}/${links}`);
     console.log(data);
     return data;
   } catch (error) {

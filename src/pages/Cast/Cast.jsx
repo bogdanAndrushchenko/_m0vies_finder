@@ -17,44 +17,40 @@ const Cast = () => {
   }, [movie_id]);
 
   const getCastList = () => {
-    getMovieDetailsCast(movie_id).then(({ cast }) => setMovieDetails(cast));
+    getMovieDetailsCast(movie_id, "credits").then(({ cast }) =>
+      setMovieDetails(cast)
+    );
   };
   console.log(movieDetails);
   return (
     <>
       {movieDetails && (
-        <>
-          <ul className="CastGallery">
-            {movieDetails &&
-              movieDetails.map(({ id, profile_path, name, character }) => (
-                <li className="CastGalleryItem" key={id}>
-                  <img
-                    src={
-                      profile_path
-                        ? `https://image.tmdb.org/t/p/w500/${profile_path}`
-                        : defaultImage
-                    }
-                    alt={name}
-                    className="CastGalleryItem-image"
-                  />
-                  <p className="NameCast">
-                    {name ? name : "Чувак"}
-                    <br />
-                    <span className="CharacterCast">
-                      as a {character ? character : "Noname"}
-                    </span>
-                  </p>
-                </li>
-              ))}
-          </ul>
-        </>
+        <ul className="CastGallery">
+          {movieDetails &&
+            movieDetails.map(({ id, profile_path, name, character }) => (
+              <li className="CastGalleryItem" key={id}>
+                <img
+                  src={
+                    profile_path
+                      ? `https://image.tmdb.org/t/p/w500/${profile_path}`
+                      : defaultImage
+                  }
+                  alt={name}
+                  className="CastGalleryItem-image"
+                />
+                <p className="NameCast">
+                  {name ? name : "Якийсь чувак"}
+                  <br />
+                  <span className="CharacterCast">
+                    as a {character ? character : "Noname"}
+                  </span>
+                </p>
+              </li>
+            ))}
+        </ul>
       )}
     </>
   );
 };
-
-// Cast.propTypes = {
-//     movie_list: PropTypes.arrayOf(PropTypes.object),
-// };
 
 export default Cast;

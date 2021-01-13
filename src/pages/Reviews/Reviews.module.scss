@@ -1,0 +1,24 @@
+.Reviews {
+  border: 1px #2d2727 solid;
+  border-radius: 5px;
+  margin: 10px auto;
+  padding: 15px;
+  background-color: #3e4f3d;
+  .Author {
+    color: #ffffff;
+  }
+  .Content {
+    color: #c9efd6;
+    font-style: italic;
+  }
+  .Update {
+    text-align: end;
+    color: #a5ac9e;
+  }
+}
+.NotReviews {
+  color: red;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 19px;
+}

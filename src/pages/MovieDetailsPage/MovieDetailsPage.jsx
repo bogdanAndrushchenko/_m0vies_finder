@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { Route, useParams } from "react-router-dom";
+
 import MovieDetPagesLinks from "./Links/MovieDetPageLinks";
 import Cast from "../Cast";
-import { getMovieDetails } from "../../API_service/api_service";
+import Reviews from "../Reviews";
 
+import { getMovieDetails } from "../../API_service/api_service";
 import defaultImage from "../../images/defaultImg.jpg";
+
 import "./MovieDetailsPage.scss";
 
 const MovieDetailsPage = () => {
@@ -62,6 +65,9 @@ const MovieDetailsPage = () => {
           <Route path="/movies/:movie_id/cast">
             <Cast />
           </Route>
+          <Route path="/movies/:movie_id/reviews">
+            <Reviews />
+          </Route>
         </div>
       )}
     </>
@@ -69,6 +75,3 @@ const MovieDetailsPage = () => {
 };
 
 export default MovieDetailsPage;
-//<Route path="/movies/:movie_id/cast">
-//               <Cast />
-//           </Route>
