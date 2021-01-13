@@ -40,6 +40,18 @@ export const getSearchMovie = async (query, page = 1) => {
 export const getMovieDetails = async (movie_id) => {
   try {
     const { data } = await axios.get(`/movie/${movie_id}`);
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+export const getMovieDetailsCast = async (movie_id) => {
+  try {
+    const { data } = await axios.get(`/movie/${movie_id}/credits`);
+    console.log(data);
     return data;
   } catch (error) {
     console.log(error);

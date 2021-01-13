@@ -5,9 +5,8 @@ import { toast, ToastContainer } from "react-toastify";
 import Container from "./Component/Container";
 import AppNavBar from "./Component/AppNavBar";
 import HomePage from "./pages/HomePage";
-import MovieDetailsPage from "./pages/MovieDetailsPage";
-
 import MoviePage from "./pages/MoviesPage";
+import MovieDetailsPage from "./pages/MovieDetailsPage";
 
 import { getTrending } from "./API_service/api_service";
 import "react-toastify/dist/ReactToastify.css";

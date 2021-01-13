@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Route, useParams } from "react-router-dom";
 import MovieDetPagesLinks from "./MovieDetPageLinks";
-
+import Cast from "./Cast";
 import { getMovieDetails } from "../API_service/api_service";
 
 import defaultImage from "../images/defaultImg.jpg";
@@ -58,6 +58,10 @@ const MovieDetailsPage = () => {
           <p className="genres">Overview:</p>
           <p className="overview">{movieDetails.overview}</p>
           <MovieDetPagesLinks />
+
+          <Route path="/movies/:movie_id/cast">
+            <Cast />
+          </Route>
         </div>
       )}
     </>
@@ -65,4 +69,6 @@ const MovieDetailsPage = () => {
 };
 
 export default MovieDetailsPage;
-//
+//<Route path="/movies/:movie_id/cast">
+//               <Cast />
+//           </Route>

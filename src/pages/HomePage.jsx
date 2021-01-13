@@ -1,13 +1,13 @@
 // import { useState } from "react";
-import { NavLink, useRouteMatch } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import "./styles/HomePage.scss";
 import defaultImage from "../images/defaultImg.jpg";
 
 const HomePage = ({ movie_list, titleHeader }) => {
-  const params = useRouteMatch();
-  console.log(params.path);
+  // const params = useRouteMatch();
+  // console.log(params.path);
   return (
     <>
       {movie_list && (
@@ -17,7 +17,7 @@ const HomePage = ({ movie_list, titleHeader }) => {
             {movie_list &&
               movie_list.map(({ id, title, backdrop_path }) => (
                 <li className="MovieGalleryItem" key={id}>
-                  <NavLink to={`${params.path}/${id}`}>
+                  <Link to={`/movies/${id}`}>
                     <img
                       src={
                         backdrop_path
@@ -30,7 +30,7 @@ const HomePage = ({ movie_list, titleHeader }) => {
                     <h3 className="TitleFilm">
                       {title ? title : "The Best Film"}
                     </h3>
-                  </NavLink>
+                  </Link>
                 </li>
               ))}
           </ul>
