@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Route, useParams } from "react-router-dom";
-import MovieDetPagesLinks from "./MovieDetPageLinks";
-import Cast from "./Cast";
-import { getMovieDetails } from "../API_service/api_service";
+import MovieDetPagesLinks from "./Links/MovieDetPageLinks";
+import Cast from "../Cast";
+import { getMovieDetails } from "../../API_service/api_service";
 
-import defaultImage from "../images/defaultImg.jpg";
-import "./styles/MovieDetailsPage.scss";
+import defaultImage from "../../images/defaultImg.jpg";
+import "./MovieDetailsPage.scss";
 
 const MovieDetailsPage = () => {
   const [movieDetails, setMovieDetails] = useState(null);

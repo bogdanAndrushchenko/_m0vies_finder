@@ -1,10 +1,10 @@
 // import {Link, useRouteMatch} from "react-router-dom";
 // import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import "./styles/Cast.scss";
-import defaultImage from "../images/defaultImg.jpg";
+import "./Cast.scss";
+import defaultImage from "../../images/defaultImg.jpg";
 
-import { getMovieDetailsCast } from "../API_service/api_service";
+import { getMovieDetailsCast } from "../../API_service/api_service";
 import { useParams } from "react-router-dom";
 
 const Cast = () => {

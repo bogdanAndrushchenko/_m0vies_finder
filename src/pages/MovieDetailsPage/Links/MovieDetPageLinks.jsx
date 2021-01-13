@@ -1,4 +1,4 @@
-import "./styles/MovieDetPageLinks.scss";
+import "./MovieDetPageLinks.scss";
 
 import { NavLink, useRouteMatch } from "react-router-dom";
 

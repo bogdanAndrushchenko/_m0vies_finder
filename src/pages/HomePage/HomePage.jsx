@@ -2,8 +2,8 @@
 import { Link, useRouteMatch } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import "./styles/HomePage.scss";
-import defaultImage from "../images/defaultImg.jpg";
+import "./HomePage.scss";
+import defaultImage from "../../images/defaultImg.jpg";
 
 const HomePage = ({ movie_list, titleHeader }) => {
   // const params = useRouteMatch();

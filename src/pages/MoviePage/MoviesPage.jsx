@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
-import FormSearch from "../Component/FormSearch";
-import HomePage from "./HomePage";
+import FormSearch from "../../Component/FormSearch";
+import HomePage from "../HomePage";
 
-import { getSearchMovie } from "../API_service/api_service";
+import { getSearchMovie } from "../../API_service/api_service";
 
 const MoviePage = () => {
   const [searchMovie, setSearchMovie] = useState("");
