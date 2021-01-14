@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import "./Cast.scss";
+import s from "./Cast.module.scss";
 
 import defaultImage from "../../images/defaultImg.jpg";
 import { getMovieDetailsCast } from "../../API_service/api_service";
@@ -24,10 +24,10 @@ const Cast = () => {
   return (
     <>
       {castDetails && (
-        <ul className="CastGallery">
+        <ul className={s.CastGallery}>
           {castDetails &&
             castDetails.map(({ id, profile_path, name, character }) => (
-              <li className="CastGalleryItem" key={id}>
+              <li className={s.CastGalleryItem} key={id}>
                 <img
                   src={
                     profile_path
@@ -35,12 +35,12 @@ const Cast = () => {
                       : defaultImage
                   }
                   alt={name}
-                  className="CastGalleryItem-image"
+                  className={s.CastGalleryItemImage}
                 />
-                <p className="NameCast">
+                <p className={s.NameCast}>
                   {name ? name : "Якийсь чувак"}
                   <br />
-                  <span className="CharacterCast">
+                  <span className={s.CharacterCast}>
                     as a {character ? character : "Noname"}
                   </span>
                 </p>

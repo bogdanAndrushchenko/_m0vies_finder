@@ -4,6 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 import Container from "./Component/Container";
 import AppNavBar from "./Component/AppNavBar";
+import Loader from "./Component/Loader";
 
 import { getTrending } from "./API_service/api_service";
 import "react-toastify/dist/ReactToastify.css";
@@ -36,7 +37,7 @@ function App() {
   return (
     <Container>
       <AppNavBar />
-      <Suspense fallback={"loading"}>
+      <Suspense fallback={<Loader />}>
         <Switch>
           <Route path="/" exact>
             <HomePage movie_list={movieList} titleHeader="Trending today" />

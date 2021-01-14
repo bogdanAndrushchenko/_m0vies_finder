@@ -2,11 +2,12 @@ import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Route, useParams } from "react-router-dom";
 
 import MovieDetPagesLinks from "./Links/MovieDetPageLinks";
+import Loader from "../../Component/Loader";
 
 import { getMovieDetails } from "../../API_service/api_service";
 import defaultImage from "../../images/defaultImg.jpg";
 
-import "./MovieDetailsPage.scss";
+import s from "./MovieDetailsPage.module.scss";
 import { toast } from "react-toastify";
 
 const Cast = lazy(() => import("../Cast" /*webpackChunkName:"cast"*/));
@@ -29,13 +30,13 @@ const MovieDetailsPage = () => {
   return (
     <>
       {movieDetails && (
-        <div className="details">
-          <h1 className="title">{movieDetails.original_title}</h1>
-          <p className="release">Release date: {movieDetails.release_date}</p>
-          <p className="genres">
+        <div className={s.details}>
+          <h1 className={s.title}>{movieDetails.original_title}</h1>
+          <p className={s.title}>Release date: {movieDetails.release_date}</p>
+          <p className={s.genres}>
             Genres:
             <br />
-            <span className="genres__item">
+            <span className={s.genres__item}>
               {movieDetails.genres.map(({ id, name }) => (
                 <span key={id}>{`${name}, `}</span>
               ))}
@@ -48,30 +49,30 @@ const MovieDetailsPage = () => {
                 : defaultImage
             }
             alt="movie"
-            className="details__img"
+            className={s.details__img}
           />
 
-          <p className="genres">
+          <p className={s.genres}>
             Production companies:
             <br />
             <span>
               {movieDetails.production_companies.map(
                 ({ id, name, origin_country }) => (
-                  <span key={id} className="genres__item">
+                  <span key={id} className={s.genres__item}>
                     {`${name} ${origin_country && `(${origin_country})`}, `}
                   </span>
                 )
               )}
             </span>
           </p>
-          <p className="genres">
+          <p className={s.genres}>
             Overview:
             <br />
-            <span className="overview">{movieDetails.overview}</span>
+            <span className={s.overview}>{movieDetails.overview}</span>
           </p>
 
           <MovieDetPagesLinks />
-          <Suspense fallback={"loading"}>
+          <Suspense fallback={<Loader />}>
             <Route path="/movies/:movie_id/cast">
               <Cast />
             </Route>

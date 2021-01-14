@@ -25,14 +25,14 @@ const MoviePage = () => {
   const onFormSubmit = (movie) => {
     setSearchMovie(movie);
   };
-  console.log(movieList);
+
   return (
     <>
       <FormSearch onFormSubmit={onFormSubmit} />
       {searchMovie && (
         <HomePage
           movie_list={movieList}
-          titleHeader={`Your result ${searchMovie}`}
+          titleHeader={`Your search: ${searchMovie}`}
         />
       )}
     </>

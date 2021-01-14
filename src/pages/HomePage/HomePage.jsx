@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import "./HomePage.scss";
+import s from "./HomePage.module.scss";
 import defaultImage from "../../images/defaultImg.jpg";
 
 const HomePage = ({ movie_list, titleHeader }) => {
@@ -9,11 +9,11 @@ const HomePage = ({ movie_list, titleHeader }) => {
     <>
       {movie_list && (
         <>
-          <h2 className="TitleHeader">{titleHeader}</h2>
+          <h2 className={s.TitleHeader}>{titleHeader}</h2>
           {movie_list.length > 0 ? (
-            <ul className="MovieGallery">
+            <ul className={s.MovieGallery}>
               {movie_list.map(({ id, title, backdrop_path }) => (
-                <li className="MovieGalleryItem" key={id}>
+                <li className={s.MovieGalleryItem} key={id}>
                   <Link to={`/movies/${id}`}>
                     <img
                       src={
@@ -22,9 +22,9 @@ const HomePage = ({ movie_list, titleHeader }) => {
                           : defaultImage
                       }
                       alt={title}
-                      className="MovieGalleryItem-image"
+                      className={s.MovieGalleryItemImage}
                     />
-                    <h3 className="TitleFilm">
+                    <h3 className={s.TitleFilm}>
                       {title ? title : "The Best Film"}
                     </h3>
                   </Link>
@@ -32,7 +32,7 @@ const HomePage = ({ movie_list, titleHeader }) => {
               ))}
             </ul>
           ) : (
-            <h2 className="NotFound">Not Found!!!</h2>
+            <h2 className={`${s.TitleHeader} ${s.NotFound}`}>Not Found!!!</h2>
           )}
         </>
       )}

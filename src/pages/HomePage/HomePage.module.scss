@@ -23,7 +23,7 @@
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
       0 2px 1px -1px rgba(0, 0, 0, 0.12);
 
-    .MovieGalleryItem-image {
+    .MovieGalleryItemImage {
       background-color: #e2be99;
       border: 1px solid #2d2727;
       display: block;
@@ -35,13 +35,13 @@
       transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .MovieGalleryItem-image:hover {
+    .MovieGalleryItemImage:hover {
       transform: scale(1.03);
       cursor: zoom-in;
     }
     .TitleFilm {
       position: absolute;
-      color: #ffffff;
+      color: #e8bdf8;
       font-size: 20px;
       font-weight: 500;
       z-index: 10;

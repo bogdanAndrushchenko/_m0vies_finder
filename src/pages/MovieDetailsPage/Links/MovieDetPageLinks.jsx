@@ -1,6 +1,6 @@
 import { NavLink, useRouteMatch } from "react-router-dom";
 
-import "./MovieDetPageLinks.scss";
+import s from "./MovieDetPageLinks.module.scss";
 
 const MovieDetPagesLinks = () => {
   const { url } = useRouteMatch();
@@ -9,15 +9,15 @@ const MovieDetPagesLinks = () => {
       <NavLink
         to={`${url}/cast`}
         exact
-        className="Link"
-        activeClassName="ActiveLink"
+        className={s.Link}
+        activeClassName={s.ActiveLink}
       >
         Cast
       </NavLink>
       <NavLink
         to={`${url}/reviews`}
-        className="Link"
-        activeClassName="ActiveLink"
+        className={s.Link}
+        activeClassName={s.ActiveLink}
       >
         Reviews
       </NavLink>
