@@ -18,16 +18,14 @@ const MoviePage = () => {
 
   const getMovieList = () => {
     getSearchMovie(searchMovie)
-      .then(({ results }) => {
-        setMovieList(results);
-      })
+      .then(({ results }) => setMovieList(results))
       .catch((e) => toast(e));
   };
 
   const onFormSubmit = (movie) => {
     setSearchMovie(movie);
   };
-
+  console.log(movieList);
   return (
     <>
       <FormSearch onFormSubmit={onFormSubmit} />

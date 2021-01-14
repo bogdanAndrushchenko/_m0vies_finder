@@ -23,7 +23,7 @@ const Reviews = () => {
 
   return (
     <>
-      {reviews > 0 ? (
+      {reviews.length > 0 ? (
         reviews.map(({ author, id, content, updated_at }) => (
           <div key={id} className={s.Reviews}>
             <p className={s.Author}>{author}</p>

@@ -1,33 +1,32 @@
-// import {Link, useRouteMatch} from "react-router-dom";
-// import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import "./Cast.scss";
-import defaultImage from "../../images/defaultImg.jpg";
-
-import { getMovieDetailsCast } from "../../API_service/api_service";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import "./Cast.scss";
+
+import defaultImage from "../../images/defaultImg.jpg";
+import { getMovieDetailsCast } from "../../API_service/api_service";
 
 const Cast = () => {
-  const [movieDetails, setMovieDetails] = useState(null);
+  const [castDetails, setCastDetails] = useState(null);
   const { movie_id } = useParams();
-  // const params = useRouteMatch();
-  // console.log(params.path);
+
   useEffect(() => {
     getCastList();
   }, [movie_id]);
 
   const getCastList = () => {
-    getMovieDetailsCast(movie_id, "credits").then(({ cast }) =>
-      setMovieDetails(cast)
-    );
+    getMovieDetailsCast(movie_id, "credits")
+      .then(({ cast }) => setCastDetails(cast))
+      .catch((e) => toast(e));
   };
-  console.log(movieDetails);
+
   return (
     <>
-      {movieDetails && (
+      {castDetails && (
         <ul className="CastGallery">
-          {movieDetails &&
-            movieDetails.map(({ id, profile_path, name, character }) => (
+          {castDetails &&
+            castDetails.map(({ id, profile_path, name, character }) => (
               <li className="CastGalleryItem" key={id}>
                 <img
                   src={

@@ -1,10 +1,9 @@
-import "./MovieDetPageLinks.scss";
-
 import { NavLink, useRouteMatch } from "react-router-dom";
+
+import "./MovieDetPageLinks.scss";
 
 const MovieDetPagesLinks = () => {
   const { url } = useRouteMatch();
-  console.log(url);
   return (
     <nav>
       <NavLink
